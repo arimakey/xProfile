@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, send_file
 from PIL import Image
 from rembg import remove
@@ -48,4 +49,4 @@ def procesar_imagen():
     return send_file('temp_image.jpg', mimetype='image/jpeg')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=int(os.environ.get('PORT', 5000)))
